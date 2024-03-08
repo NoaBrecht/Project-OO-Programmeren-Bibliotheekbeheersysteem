@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Bib_Noa_Van_den_Berghe
 {
-	internal class Library
-	{
+	internal class Library(string name)
+    {
 		List<Book> Booklist = new List<Book>();
 
-		private string Name;
+		private string Name = name;
 		private List<Book> BookList;
 
 		public List<Book> books
@@ -25,12 +25,8 @@ namespace Bib_Noa_Van_den_Berghe
 			get { return Name; }
 			set { Name = value; }
 		}
-		public Library(string name)
-		{
-			this.Name = name;
-		}
 
-		public void AddBook(Book book)
+        public void AddBook(Book book)
 		{
 			Booklist.Add(book);
 		}
@@ -42,7 +38,7 @@ namespace Bib_Noa_Van_den_Berghe
                 if (book.title.ToLower() == title.ToLower() && book.writer.ToLower() == author.ToLower())
                 {
                     bookToRemove = book;
-                    break; // Stop searching once the book is found
+                    break;
                 }
             }
 
@@ -59,7 +55,7 @@ namespace Bib_Noa_Van_den_Berghe
             }
         }
 
-        public void SearchBook(string titel, string auteur)
+        public void SearchBookByTitelAutor(string titel, string auteur)
         {
             foreach (Book book in Booklist)
             {
@@ -70,24 +66,55 @@ namespace Bib_Noa_Van_den_Berghe
                 }
             }
         }
-		public void SearchBookBySpec()
-		{
-
-		}
-		public void ShowAllBooks()
-		{
-            if (BookList.Count > 0)
+        public void SearchBookByType(string type)
+        {
+            foreach (Book book in Booklist)
             {
-                foreach (Book book in Booklist)
+                if (book.type == type)
                 {
                     book.ShowInfo();
                 }
             }
-            else
+        }
+        public void SearchBookByAutor(string auteur)
+        {
+            foreach (Book book in Booklist)
             {
-                Console.WriteLine("Er zijn geen boeken in de bibliotheek");
+                if (book.writer == auteur)
+                {
+                    book.ShowInfo();
+
+                }
+            }
+        }
+        public void SearchBookByISBN(string ISBN)
+        {
+            foreach (Book book in Booklist)
+            {
+                if (book.isbn == ISBN)
+                {
+                    book.ShowInfo();
+
+                }
+            }
+        }
+		public void ShowAllBooks()
+		{
+            foreach (Book book in Booklist)
+            {
+                book.ShowWriterTitle();
             }
         }
 
+        internal void addInfoToBook(string iSBNtitle, string iSBNauthor, string iSBN)
+        {
+            foreach (Book book in Booklist)
+            {
+                if (book.title == iSBNauthor && book.writer == iSBNauthor)
+                {
+                    book.isbn = iSBN;
+                }
+            }
+        }
     }
 }

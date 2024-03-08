@@ -9,51 +9,57 @@ namespace Bib_Noa_Van_den_Berghe
         {
             bool stop = false;
             Library bib1 = new Library("TestBib");
+            //ReadbookFile(@"C:\boeken.csv");
             do
             {
-                int keuze = 0;
+                string keuze = "";
 
                 Console.Clear();
              Console.WriteLine("Wat wenst U te doen?");
                 Console.WriteLine("1. Een boek toevoegen aan de bibliotheek op basis van titel en auteur");
-                Console.WriteLine("2. Extra informatie toevoegen aan een boek"); //TODO
-                Console.WriteLine("3. Alle info weergeven op basis van titel en auteur"); //TODO
-                Console.WriteLine("4. Een boek zoeken"); //TODO
+                Console.WriteLine("2. Extra informatie toevoegen aan een boek");
+                Console.WriteLine("3. Alle info weergeven op basis van titel en auteur");
+                Console.WriteLine("4. Een boek zoeken");
                 Console.WriteLine("5. Boek verwijderen uit bibliotheek");
                 Console.WriteLine("6. Alle boeken tonen");
-                Console.WriteLine("9. Afsluiten");
-                keuze = int.Parse(Console.ReadLine());
-                switch (keuze)
+                Console.WriteLine("exit: Afsluiten");
+                keuze = Console.ReadLine();
+                switch (keuze.ToLower())
                 {
-                    case 1:
+                    case "1":
                         Console.WriteLine("Wat is de titel van het boek?");
                         string title = Console.ReadLine();
                         Console.WriteLine("Wie is de auteur van het boek?");
                         string author = Console.ReadLine();
                         // Create the book object
-                        Book newBook = new Book(title, author);
+                        Book newBook = new Book(title, author, bib1);
                         bib1.AddBook(newBook);
                         Console.WriteLine($"Het boek met titel: {title} en auteur {author} is toegevoegd aan de bibliotheek");
                         Console.WriteLine("Druk op enter om verder te gaan");
                         Console.ReadLine();
 
                         break;
-                    case 2:
-                        // Add additional information to a book
+                    case "2":
+                        Console.WriteLine("Wat is de titel van het boek?");
+                        string ISBNtitle = Console.ReadLine();
+                        Console.WriteLine("Wie is de auteur van het boek?");
+                        string ISBNauthor = Console.ReadLine();
+                        Console.WriteLine("Voer het ISBN nummer voor het boek in: (0123456789)");
+                        string ISBN = Console.ReadLine();
+                        bib1.addInfoToBook(ISBNtitle, ISBNauthor, ISBN);
                         break;
-                    case 3:
+                    case "3":
                         Console.WriteLine("Wat is de titel van het boek?");
                         string naam = Console.ReadLine();
                         Console.WriteLine("Wie is de auteur van het boek?");
                         string auter = Console.ReadLine();
-                        bib1.SearchBook(naam, auter);
+                        bib1.SearchBookByTitelAutor(naam, auter);
                         Console.WriteLine("Druk op enter om verder te gaan");
                         Console.ReadLine();
                         break;
-                    case 4:
-                        bib1.SearchBookBySpec();
+                    case "4":
                         break;
-                    case 5:
+                    case "5":
                         Console.WriteLine("Wat is de titel van het boek dat je wilt verwijderen?");
                         string removeTitle = Console.ReadLine();
                         Console.WriteLine("Wie is de auteur van het boek?");
@@ -62,12 +68,12 @@ namespace Bib_Noa_Van_den_Berghe
                         Console.WriteLine("Druk op enter om verder te gaan");
                         Console.ReadLine();
                         break;
-                    case 6:
+                    case "6":
                         bib1.ShowAllBooks();
                         Console.WriteLine("Druk op enter om verder te gaan");
                         Console.ReadLine();
                         break;
-                    case 9:
+                    case "exit":
                         stop = true;
                         break;
 
