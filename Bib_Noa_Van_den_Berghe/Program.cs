@@ -31,7 +31,6 @@ namespace Bib_Noa_Van_den_Berghe
                         string title = Console.ReadLine();
                         Console.WriteLine("Wie is de auteur van het boek?");
                         string author = Console.ReadLine();
-                        // Create the book object
                         Book newBook = new Book(title, author, bib1);
                         bib1.AddBook(newBook);
                         Console.WriteLine($"Het boek met titel: {title} en auteur {author} is toegevoegd aan de bibliotheek");

@@ -152,7 +152,6 @@
         {
 
             List<Book> books = new List<Book>();
-            // Speler voornaam, familienaam, geboortejaar
             string[] lijnen = File.ReadAllLines(path);
             for (int i = 0; i < lijnen.Length; i++)
             {
