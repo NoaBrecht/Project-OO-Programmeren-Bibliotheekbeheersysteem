@@ -9,8 +9,10 @@ namespace Bib_Noa_Van_den_Berghe
 	internal class Library(string name)
     {
 		List<Book> Booklist = new List<Book>();
+        Dictionary<DateTime, ReadingRoomItem> AllReadingRoom = new Dictionary<DateTime, ReadingRoomItem>();
 
-		private string Name = name;
+
+        private string Name = name;
 		private List<Book> BookList;
 
 		public List<Book> books
@@ -106,11 +108,11 @@ namespace Bib_Noa_Van_den_Berghe
             }
         }
 
-        internal void addInfoToBook(string iSBNtitle, string iSBNauthor, string iSBN)
+        public void addInfoToBook(string iSBNtitle, string iSBNauthor, string iSBN)
         {
             foreach (Book book in Booklist)
             {
-                if (book.title == iSBNauthor && book.writer == iSBNauthor)
+                if (book.title == iSBNtitle && book.writer == iSBNauthor)
                 {
                     book.isbn = iSBN;
                 }

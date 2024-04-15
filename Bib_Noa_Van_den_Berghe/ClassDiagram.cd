@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bib_Noa_Van_den_Berghe.Library">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAACAAAAAAKCBAAQEAgCEAAAAAAAEAAAAAAg=</HashCode>
+      <FileName>Library.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bib_Noa_Van_den_Berghe.NewsPaper">
+    <Position X="12" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAACAA=</HashCode>
+      <FileName>NewsPaper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bib_Noa_Van_den_Berghe.ReadingRoomItem" Collapsed="true">
+    <Position X="13.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAEAACAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>ReadingRoomItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bib_Noa_Van_den_Berghe.Book">
+    <Position X="9" Y="2.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Bib_Noa_Van_den_Berghe.Book.Genre" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Book.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAEABASSAIAEgADEABAAAAAAABAAQAAQAAAAEAACA=</HashCode>
+      <FileName>Book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bib_Noa_Van_den_Berghe.Magazine">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Magazine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

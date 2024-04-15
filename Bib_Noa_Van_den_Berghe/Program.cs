@@ -57,6 +57,13 @@ namespace Bib_Noa_Van_den_Berghe
                         Console.ReadLine();
                         break;
                     case "4":
+                        Console.WriteLine("Wat is de titel van het boek dat je wilt zoeken?");
+                        string searchString = Console.ReadLine();
+                        Console.WriteLine("Wie is de auteur van het boek?");
+                        string SearchAuthor = Console.ReadLine();
+                        bib1.SearchBookByTitelAutor(searchString, SearchAuthor);
+                        Console.WriteLine("Druk op enter om verder te gaan");
+                        Console.ReadLine();
                         break;
                     case "5":
                         Console.WriteLine("Wat is de titel van het boek dat je wilt verwijderen?");
