@@ -8,7 +8,9 @@
     {
         internal class Book
         {
-            public enum Genre
+        public static Library bib1 = new Library("Bib_Antwerpen");
+
+        public enum Genre
             {
                 Thriller, 
                 Msdaad,
@@ -123,8 +125,8 @@
 
             public Book(string title, string writer, Library library)
             {
-                this.writer = writer;
-                this.title = title;
+            this.writer = writer;
+            this.title = title;
             library.AddBook(this);
             }
             public void ShowInfo()
@@ -148,9 +150,8 @@
             string[] lijnen = File.ReadAllLines(path);
             for (int i = 0; i < lijnen.Length; i++)
             {
-                string[] kolomwaarden = lijnen[i].Split(',');
-                Book book = new Book(kolomwaarden[0], kolomwaarden[1], null);
-                books.Add(book);
+                string[] kolomwaarden = lijnen[i].Split(';');
+                Book book = new Book(kolomwaarden[0], kolomwaarden[1], bib1);
             }
 
             return books;

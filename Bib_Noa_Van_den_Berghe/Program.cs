@@ -9,7 +9,7 @@ namespace Bib_Noa_Van_den_Berghe
         {
             bool stop = false;
             Library bib1 = new Library("Bib_Antwerpen");
-            //ReadbookFile(@"C:\boeken.csv");
+            ReadbookFile(@"C:\code\boeken.csv");
             do
             {
                 string keuze = "";
