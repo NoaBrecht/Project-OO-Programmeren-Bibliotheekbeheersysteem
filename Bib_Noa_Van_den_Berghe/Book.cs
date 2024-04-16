@@ -30,13 +30,6 @@
             private string ISBN;
             private Genre BookGenre;
             private string Type;
-            private Library Library;
-
-            public Library library
-            {
-                get { return Library; }
-                set { Library = value; }
-            }
 
 
             public string type
@@ -132,7 +125,7 @@
             {
                 this.writer = writer;
                 this.title = title;
-                this.library = library;
+            library.AddBook(this);
             }
             public void ShowInfo()
             {

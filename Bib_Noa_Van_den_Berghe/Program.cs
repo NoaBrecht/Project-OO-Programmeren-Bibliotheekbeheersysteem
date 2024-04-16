@@ -8,7 +8,7 @@ namespace Bib_Noa_Van_den_Berghe
         static void Main(string[] args)
         {
             bool stop = false;
-            Library bib1 = new Library("TestBib");
+            Library bib1 = new Library("Bib_Antwerpen");
             //ReadbookFile(@"C:\boeken.csv");
             do
             {
@@ -32,7 +32,6 @@ namespace Bib_Noa_Van_den_Berghe
                         Console.WriteLine("Wie is de auteur van het boek?");
                         string author = Console.ReadLine();
                         Book newBook = new Book(title, author, bib1);
-                        bib1.AddBook(newBook);
                         Console.WriteLine($"Het boek met titel: {title} en auteur {author} is toegevoegd aan de bibliotheek");
                         Console.WriteLine("Druk op enter om verder te gaan");
                         Console.ReadLine();

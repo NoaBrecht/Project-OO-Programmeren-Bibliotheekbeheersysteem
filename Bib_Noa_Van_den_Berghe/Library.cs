@@ -8,18 +8,11 @@ namespace Bib_Noa_Van_den_Berghe
 {
 	internal class Library(string name)
     {
-		List<Book> Booklist = new List<Book>();
         Dictionary<DateTime, ReadingRoomItem> AllReadingRoom = new Dictionary<DateTime, ReadingRoomItem>();
 
 
         private string Name = name;
-		private List<Book> BookList;
-
-		public List<Book> books
-		{
-			get { return BookList; }
-			set { BookList = value; }
-		}
+        private List<Book> BookList = new List<Book>();
 
 
 		public string name
@@ -30,12 +23,12 @@ namespace Bib_Noa_Van_den_Berghe
 
         public void AddBook(Book book)
 		{
-			Booklist.Add(book);
+			BookList.Add(book);
 		}
         public bool RemoveBook(string title, string author)
         {
             Book bookToRemove = null;
-            foreach (Book book in Booklist)
+            foreach (Book book in BookList)
             {
                 if (book.title.ToLower() == title.ToLower() && book.writer.ToLower() == author.ToLower())
                 {
@@ -46,7 +39,7 @@ namespace Bib_Noa_Van_den_Berghe
 
             if (bookToRemove != null)
             {
-                Booklist.Remove(bookToRemove);
+                BookList.Remove(bookToRemove);
                 Console.WriteLine("Boek succesvol verwijderd.");
                 return true;
             }
@@ -59,7 +52,7 @@ namespace Bib_Noa_Van_den_Berghe
 
         public void SearchBookByTitelAutor(string titel, string auteur)
         {
-            foreach (Book book in Booklist)
+            foreach (Book book in BookList)
             {
 				if (book.title == titel && book.writer == auteur)
 				{
@@ -70,7 +63,7 @@ namespace Bib_Noa_Van_den_Berghe
         }
         public void SearchBookByType(string type)
         {
-            foreach (Book book in Booklist)
+            foreach (Book book in BookList)
             {
                 if (book.type == type)
                 {
@@ -80,7 +73,7 @@ namespace Bib_Noa_Van_den_Berghe
         }
         public void SearchBookByAutor(string auteur)
         {
-            foreach (Book book in Booklist)
+            foreach (Book book in BookList)
             {
                 if (book.writer == auteur)
                 {
@@ -91,7 +84,7 @@ namespace Bib_Noa_Van_den_Berghe
         }
         public void SearchBookByISBN(string ISBN)
         {
-            foreach (Book book in Booklist)
+            foreach (Book book in BookList)
             {
                 if (book.isbn == ISBN)
                 {
@@ -102,7 +95,7 @@ namespace Bib_Noa_Van_den_Berghe
         }
 		public void ShowAllBooks()
 		{
-            foreach (Book book in Booklist)
+            foreach (Book book in BookList)
             {
                 book.ShowWriterTitle();
             }
@@ -110,7 +103,7 @@ namespace Bib_Noa_Van_den_Berghe
 
         public void addInfoToBook(string iSBNtitle, string iSBNauthor, string iSBN)
         {
-            foreach (Book book in Booklist)
+            foreach (Book book in BookList)
             {
                 if (book.title == iSBNtitle && book.writer == iSBNauthor)
                 {
