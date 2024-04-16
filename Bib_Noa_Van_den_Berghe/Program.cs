@@ -9,7 +9,11 @@ namespace Bib_Noa_Van_den_Berghe
         {
             bool stop = false;
             Library bib1 = new Library("Bib_Antwerpen");
-            ReadbookFile(@"C:\code\boeken.csv");
+            Book book1 = new Book("Mirage Daughter of No One", "Maria Lewis", bib1);
+            book1.language = "Engels";
+            book1.pagecount = 320;
+            book1.bookgenre = Genre.fictie;
+            //ReadbookFile(@"C:\code\boeken.csv");
             do
             {
                 string keuze = "";
@@ -83,7 +87,7 @@ namespace Bib_Noa_Van_den_Berghe
                         break;
 
                     default:
-                        Console.WriteLine("Ongeldige keuze. Kies een nummer uit de lijst.");
+                        Console.WriteLine("Ongeldige keuze. Kies een keuze uit de lijst.");
                         break;
                 } 
             } while (!stop);
