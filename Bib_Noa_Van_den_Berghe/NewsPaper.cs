@@ -9,22 +9,47 @@ namespace Bib_Noa_Van_den_Berghe
 {
     internal class NewsPaper : ReadingRoomItem
     {
-		private DateTime date;
+        private DateTime date;
+
+        public DateTime Date
+        {
+            get { return date; }
+            set { date = value; }
+        }
+
 
         public NewsPaper(string title, string publisher, DateTime date) : base(title, publisher)
         {
             Title = title;
             Publisher = publisher;
-            Date = date;
+            this.date = date;
         }
-        public DateTime Date
-        {
-            get { return date; }
-            set { date = value; }
-		}
-        public override string Identification => throw new NotImplementedException();
 
-        public override string Category => throw new NotImplementedException();
-        
+        public override string Identification
+        {
+            get
+            {
+                string firstLetters = FirstLetters(Title);
+                string day = Date.Day.ToString("D2") ;
+                string month = Date.Month.ToString("D2");
+                string year = Date.Year.ToString();
+                return (firstLetters + day + month + year);
+            }
+        }
+
+        private string FirstLetters(string title)
+        {
+            string[] words = title.Split(' ');
+            string initials = "";
+
+            foreach (string word in words)
+            {
+                initials += word[0];
+            }
+
+            return initials.ToUpper();
+        }
+        public override string Category => "Krant";
+
     }
 }

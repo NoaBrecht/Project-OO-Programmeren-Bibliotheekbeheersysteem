@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Bib_Noa_Van_den_Berghe
 {
@@ -25,6 +26,25 @@ namespace Bib_Noa_Van_den_Berghe
 		{
 			BookList.Add(book);
 		}
+        public void AddNewsaper()
+        {
+            Console.WriteLine("Wat is de naam van de krant?");
+            string newspaperName = Console.ReadLine();
+            Console.WriteLine("Wat is de datum van de krant?");
+            DateTime newspaperDate = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Wat is de uitgeverij van de krant?");
+            string newspaperPublisher = Console.ReadLine();
+            NewsPaper krant = new NewsPaper(newspaperName, newspaperPublisher, newspaperDate);
+            AllReadingRoom.Add(newspaperDate,krant);
+        }
+        public void ShowAllNewspapers()
+        {
+            Console.WriteLine("De kranten in de leeszaal");
+            foreach (NewsPaper newsPaper in AllReadingRoom.Values.OfType<NewsPaper>())
+            {
+                Console.WriteLine($"- {newsPaper.Title} van {newsPaper.Date.ToString()}");
+            }
+        }
         public bool RemoveBook(string title, string author)
         {
             Book bookToRemove = null;

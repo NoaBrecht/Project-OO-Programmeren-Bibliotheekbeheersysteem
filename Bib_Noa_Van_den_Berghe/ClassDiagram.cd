@@ -3,19 +3,19 @@
   <Class Name="Bib_Noa_Van_den_Berghe.Library">
     <Position X="7.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAACAAAAAAKCBAAQEAgCEAAAAAAAEAAAAAAg=</HashCode>
+      <HashCode>AAAAACAAAAAQAAAAAKABAAQEAgCEAAIAAAAEAAAAAAg=</HashCode>
       <FileName>Library.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Bib_Noa_Van_den_Berghe.NewsPaper">
     <Position X="12" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAACAA=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAEAAAAAAAAABAAAAAQAACAA=</HashCode>
       <FileName>NewsPaper.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bib_Noa_Van_den_Berghe.ReadingRoomItem" Collapsed="true">
-    <Position X="13.25" Y="2" Width="1.5" />
+  <Class Name="Bib_Noa_Van_den_Berghe.ReadingRoomItem">
+    <Position X="13.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAEAACAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>ReadingRoomItem.cs</FileName>
@@ -31,14 +31,14 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAEABASSAIAEgADEABAAAAAAABAAQAAQAAAAEAACA=</HashCode>
+      <HashCode>AAAEEABASSAAAEgABEABAAAAAAABAAQAAQAAAAEAACA=</HashCode>
       <FileName>Book.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Bib_Noa_Van_den_Berghe.Magazine">
     <Position X="14.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Magazine.cs</FileName>
     </TypeIdentifier>
   </Class>

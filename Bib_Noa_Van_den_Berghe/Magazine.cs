@@ -17,6 +17,6 @@ namespace Bib_Noa_Van_den_Berghe
 
         public override string Identification => throw new NotImplementedException();
 
-        public override string Category => throw new NotImplementedException();
+        public override string Category => "Maandblad";
     }
 }

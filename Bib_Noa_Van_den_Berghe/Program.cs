@@ -13,6 +13,12 @@ namespace Bib_Noa_Van_den_Berghe
             book1.language = "Engels";
             book1.pagecount = 320;
             book1.bookgenre = Genre.fictie;
+            DateTime date = new DateTime(2024, 4, 17);
+
+            NewsPaper krant = new NewsPaper("Gazet Van Antwerpen", "test", date);
+            bib1.AddNewsaper();
+            bib1.ShowAllNewspapers();
+            Console.ReadLine();
             //ReadbookFile(@"C:\code\boeken.csv");
             do
             {
