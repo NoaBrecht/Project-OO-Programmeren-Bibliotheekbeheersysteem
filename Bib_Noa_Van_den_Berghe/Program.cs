@@ -16,9 +16,6 @@ namespace Bib_Noa_Van_den_Berghe
             DateTime date = new DateTime(2024, 4, 17);
 
             NewsPaper krant = new NewsPaper("Gazet Van Antwerpen", "test", date);
-            bib1.AddNewsaper();
-            bib1.ShowAllNewspapers();
-            Console.ReadLine();
             //ReadbookFile(@"C:\code\boeken.csv");
             do
             {
@@ -32,6 +29,10 @@ namespace Bib_Noa_Van_den_Berghe
                 Console.WriteLine("4. Een boek zoeken");
                 Console.WriteLine("5. Boek verwijderen uit bibliotheek");
                 Console.WriteLine("6. Alle boeken tonen");
+                Console.WriteLine("7. Maandblad toevoegen");
+                Console.WriteLine("8. Krant toevoegen");
+                Console.WriteLine("9. Alle kranten tonen");
+
                 Console.WriteLine("exit: Afsluiten");
                 keuze = Console.ReadLine();
                 switch (keuze.ToLower())
@@ -86,6 +87,21 @@ namespace Bib_Noa_Van_den_Berghe
                     case "6":
                         bib1.ShowAllBooks();
                         Console.WriteLine("Druk op enter om verder te gaan");
+                        Console.ReadLine();
+                        break;
+                    case "7":
+                        bib1.ShowAllBooks();
+                        Console.WriteLine("Druk op enter om verder te gaan");
+                        Console.ReadLine();
+                        break;
+                    case "8":
+                        bib1.AddNewsaper();
+                        Console.WriteLine("Druk op enter om verder te gaan");
+                        Console.ReadLine();
+                        break;
+                    case "9":
+                        bib1.ShowAllNewspapers();
+                            Console.WriteLine("Druk op enter om verder te gaan");
                         Console.ReadLine();
                         break;
                     case "exit":

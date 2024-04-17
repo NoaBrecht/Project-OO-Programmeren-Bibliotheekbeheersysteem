@@ -42,7 +42,7 @@ namespace Bib_Noa_Van_den_Berghe
             Console.WriteLine("De kranten in de leeszaal");
             foreach (NewsPaper newsPaper in AllReadingRoom.Values.OfType<NewsPaper>())
             {
-                Console.WriteLine($"- {newsPaper.Title} van {newsPaper.Date.ToString()}");
+                Console.WriteLine($"- {newsPaper.Title} van {newsPaper.Date.ToLongDateString()}");
             }
         }
         public bool RemoveBook(string title, string author)
