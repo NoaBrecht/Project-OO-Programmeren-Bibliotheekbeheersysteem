@@ -45,6 +45,38 @@ namespace Bib_Noa_Van_den_Berghe
                 Console.WriteLine($"- {newsPaper.Title} van {newsPaper.Date.ToLongDateString()}");
             }
         }
+        public void AddMagazine()
+        {
+            Console.WriteLine("Wat is de naam van het magazine?");
+            string magazineName = Console.ReadLine();
+            Console.WriteLine("Wat is de maand van het magazine?");
+            int magazineMonth = int.Parse(Console.ReadLine());
+            Console.WriteLine("Wat is de jaar van het magazine?");
+            int magazineYear = int.Parse(Console.ReadLine());
+            Console.WriteLine("Wat is de uitgeverij van het magazine?");
+            string magazinePublisher = Console.ReadLine();
+            Magazine magazine = new Magazine(magazineName,magazinePublisher,magazineMonth, magazineYear);
+            AllReadingRoom.Add(DateTime.Now, magazine);
+        }
+        public void ShowAllMagazines()
+        {
+            Console.WriteLine("Alle maandbladen in de leeszaal");
+            foreach (Magazine magazine in AllReadingRoom.Values.OfType<Magazine>())
+            {
+                Console.WriteLine($"- {magazine.Title} van {magazine.Month}/{magazine.Year} van uitgeverij {magazine.Publisher}");
+            }
+        }
+        public void AcquisitionsReadingRoomToday()
+        {
+            DateTime today = DateTime.Today;
+            foreach (var item in AllReadingRoom)
+            {
+                if (item.Key.Date == today)
+                {
+                    Console.WriteLine($"{item.Value.Title} met id {item.Value.Identification}");
+                }
+            }
+        }
         public bool RemoveBook(string title, string author)
         {
             Book bookToRemove = null;

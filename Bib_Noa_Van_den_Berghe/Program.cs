@@ -32,7 +32,8 @@ namespace Bib_Noa_Van_den_Berghe
                 Console.WriteLine("7. Maandblad toevoegen");
                 Console.WriteLine("8. Krant toevoegen");
                 Console.WriteLine("9. Alle kranten tonen");
-
+                Console.WriteLine("10. Alle magazines tonen");
+                Console.WriteLine("11. Aanwisten van vandaag tonen");
                 Console.WriteLine("exit: Afsluiten");
                 keuze = Console.ReadLine();
                 switch (keuze.ToLower())
@@ -90,7 +91,7 @@ namespace Bib_Noa_Van_den_Berghe
                         Console.ReadLine();
                         break;
                     case "7":
-                        bib1.ShowAllBooks();
+                        bib1.AddMagazine();
                         Console.WriteLine("Druk op enter om verder te gaan");
                         Console.ReadLine();
                         break;
@@ -102,6 +103,16 @@ namespace Bib_Noa_Van_den_Berghe
                     case "9":
                         bib1.ShowAllNewspapers();
                             Console.WriteLine("Druk op enter om verder te gaan");
+                        Console.ReadLine();
+                        break;
+                    case "10":
+                        bib1.ShowAllMagazines();
+                        Console.WriteLine("Druk op enter om verder te gaan");
+                        Console.ReadLine();
+                        break;
+                    case "11":
+                        bib1.AcquisitionsReadingRoomToday();
+                        Console.WriteLine("Druk op enter om verder te gaan");
                         Console.ReadLine();
                         break;
                     case "exit":

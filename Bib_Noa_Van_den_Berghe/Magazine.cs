@@ -9,14 +9,68 @@ namespace Bib_Noa_Van_den_Berghe
 {
     internal class Magazine : ReadingRoomItem
     {
-        public Magazine(string title, string publisher) : base(title, publisher)
+        public Magazine(string title, string publisher, int month, int year) : base(title, publisher)
         {
+            if (12 >= month)
+            {
+                Month = month;
+            }
+            else
+            {
+                Console.WriteLine("De maand is maximaal 12");
+            }
+            if (year <= 2500)
+            {
+                Year = year;
+            }
+            else
+            {
+                Console.WriteLine("Het jaartal is maximaal 2500");
+            }
             Title = title;
             Publisher = publisher;
         }
+        private int year;
 
-        public override string Identification => throw new NotImplementedException();
+        public int Year
+        {
+            get { return year; }
+            set { year = value; }
+        }
+        private int month;
 
+        public int Month
+        {
+            get { return month; }
+            set { month = value; }
+        }
+
+
+
+
+
+        public override string Identification
+        {
+            get
+            {
+                string firstLetters = FirstLetters(Title);
+                int maand = this.month;
+                int jaar = year;
+                return (firstLetters + maand + jaar);
+            }
+        }
+        private string FirstLetters(string title)
+        {
+            string[] words = title.Split(' ');
+            string initials = "";
+
+            foreach (string word in words)
+            {
+                initials += word[0];
+            }
+
+            return initials.ToUpper();
+        }
         public override string Category => "Maandblad";
     }
 }
