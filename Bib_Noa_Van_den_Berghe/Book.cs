@@ -23,7 +23,8 @@
                 Nonfictie,
                 Biografie,
                 Poëzie,
-                fictie
+                fictie,
+                schoolboek
             }
             private string Title;
             private int PageCount;

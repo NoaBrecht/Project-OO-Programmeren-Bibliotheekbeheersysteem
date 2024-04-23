@@ -17,7 +17,7 @@ namespace Bib_Noa_Van_den_Berghe
             }
             else
             {
-                Console.WriteLine("De maand is maximaal 12");
+                throw new ArgumentException("De maand is maximaal 12");
             }
             if (year <= 2500)
             {
@@ -25,7 +25,7 @@ namespace Bib_Noa_Van_den_Berghe
             }
             else
             {
-                Console.WriteLine("Het jaartal is maximaal 2500");
+                throw new ArgumentException("Het jaartal is maximaal 2500");
             }
             Title = title;
             Publisher = publisher;
