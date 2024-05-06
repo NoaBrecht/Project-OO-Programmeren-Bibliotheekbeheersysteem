@@ -15,10 +15,11 @@ namespace Bib_Noa_Van_den_Berghe
                 book1.language = "Engels";
                 book1.pagecount = 320;
                 book1.bookgenre = Genre.fictie;
+                book1.Borrow();
+                book1.Return();
                 do
                 {
                     string keuze = "";
-
                     Console.Clear();
                     Console.WriteLine("Wat wenst U te doen?");
                     Console.WriteLine("1. Een boek toevoegen aan de bibliotheek op basis van titel en auteur");
@@ -37,25 +38,39 @@ namespace Bib_Noa_Van_den_Berghe
                     switch (keuze.ToLower())
                     {
                         case "1":
-                            Console.WriteLine("Wat is de titel van het boek?");
-                            string title = Console.ReadLine();
-                            Console.WriteLine("Wie is de auteur van het boek?");
-                            string author = Console.ReadLine();
-                            Book newBook = new Book(title, author, bib1);
-                            Console.WriteLine($"Het boek met titel: {title} en auteur {author} is toegevoegd aan de bibliotheek");
-                            Console.WriteLine("Druk op enter om verder te gaan");
-                            Console.ReadLine();
-
+                            try
+                            {
+                                Console.WriteLine("Wat is de titel van het boek?");
+                                string title = Console.ReadLine();
+                                Console.WriteLine("Wie is de auteur van het boek?");
+                                string author = Console.ReadLine();
+                                Book newBook = new Book(title, author, bib1);
+                                Console.WriteLine($"Het boek met titel: {title} en auteur {author} is toegevoegd aan de bibliotheek");
+                                Console.WriteLine("Druk op enter om verder te gaan");
+                                Console.ReadLine();
+                            }
+                            catch (WronginputExeption e)
+                            {
+                                Console.WriteLine(e.Message);
+                            }
                             break;
                         case "2":
-                            Console.WriteLine("Wat is de titel van het boek?");
-                            string ISBNtitle = Console.ReadLine();
-                            Console.WriteLine("Wie is de auteur van het boek?");
-                            string ISBNauthor = Console.ReadLine();
-                            Console.WriteLine("Voer het ISBN nummer voor het boek in: (0123456789)");
-                            string ISBN = Console.ReadLine();
-                            bib1.addInfoToBook(ISBNtitle, ISBNauthor, ISBN);
+                            try
+                            {
+                                Console.WriteLine("Wat is de titel van het boek?");
+                                string ISBNtitle = Console.ReadLine();
+                                Console.WriteLine("Wie is de auteur van het boek?");
+                                string ISBNauthor = Console.ReadLine();
+                                Console.WriteLine("Voer het ISBN nummer voor het boek in: (0123456789)");
+                                string ISBN = Console.ReadLine();
+                                bib1.addInfoToBook(ISBNtitle, ISBNauthor, ISBN);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Er ging iets mis");
+                            }
                             break;
+
                         case "3":
                             Console.WriteLine("Wat is de titel van het boek?");
                             string naam = Console.ReadLine();
