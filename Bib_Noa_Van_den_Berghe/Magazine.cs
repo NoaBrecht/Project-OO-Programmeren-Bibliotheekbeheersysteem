@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,8 +54,8 @@ namespace Bib_Noa_Van_den_Berghe
             get
             {
                 string firstLetters = FirstLetters(Title);
-                int maand = this.month;
-                int jaar = year;
+                string maand = this.month.ToString("D2");
+                string jaar = year.ToString() ;
                 return (firstLetters + maand + jaar);
             }
         }

@@ -9,6 +9,7 @@ namespace Bib_Noa_Van_den_Berghe
         {
             try
             {
+                Console.Title = "Bib";
                 bool stop = false;
                 Library bib1 = new Library("Bib_Antwerpen");
                 Book book1 = new Book("Mirage Daughter of No One", "Maria Lewis", bib1);
@@ -20,19 +21,23 @@ namespace Bib_Noa_Van_den_Berghe
                     string keuze = "";
 
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Wat wenst U te doen?");
-                    Console.WriteLine("1. Een boek toevoegen aan de bibliotheek op basis van titel en auteur");
-                    Console.WriteLine("2. Extra informatie toevoegen aan een boek");
-                    Console.WriteLine("3. Alle info weergeven op basis van titel en auteur");
-                    Console.WriteLine("4. Een boek zoeken");
-                    Console.WriteLine("5. Boek verwijderen uit bibliotheek");
-                    Console.WriteLine("6. Alle boeken tonen");
-                    Console.WriteLine("7. Maandblad toevoegen");
-                    Console.WriteLine("8. Krant toevoegen");
-                    Console.WriteLine("9. Alle kranten tonen");
+                    Console.ResetColor();
+                    Console.WriteLine("1.  Een boek toevoegen aan de bibliotheek op basis van titel en auteur");
+                    Console.WriteLine("2.  Extra informatie toevoegen aan een boek");
+                    Console.WriteLine("3.  Alle info weergeven op basis van titel en auteur");
+                    Console.WriteLine("4.  Een boek zoeken");
+                    Console.WriteLine("5.  Boek verwijderen uit bibliotheek");
+                    Console.WriteLine("6.  Alle boeken tonen");
+                    Console.WriteLine("7.  Maandblad toevoegen");
+                    Console.WriteLine("8.  Krant toevoegen");
+                    Console.WriteLine("9.  Alle kranten tonen");
                     Console.WriteLine("10. Alle magazines tonen");
                     Console.WriteLine("11. Aanwisten van vandaag tonen");
+                    Console.WriteLine();
                     Console.WriteLine("exit: Afsluiten");
+                    Console.WriteLine();
                     keuze = Console.ReadLine();
                     switch (keuze.ToLower())
                     {

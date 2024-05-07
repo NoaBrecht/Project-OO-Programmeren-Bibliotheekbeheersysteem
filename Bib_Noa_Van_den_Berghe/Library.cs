@@ -81,6 +81,7 @@ namespace Bib_Noa_Van_den_Berghe
         public void AcquisitionsReadingRoomToday()
         {
             DateTime today = DateTime.Today;
+            Console.WriteLine($"Aanwinsten in de leeszaal van {today.DayOfWeek} {today.ToLongDateString()}");
             foreach (var item in AllReadingRoom)
             {
                 if (item.Key.Date == today)

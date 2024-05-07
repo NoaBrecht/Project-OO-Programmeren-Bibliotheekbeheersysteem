@@ -20,8 +20,6 @@ namespace Bib_Noa_Van_den_Berghe
 
         public NewsPaper(string title, string publisher, DateTime date) : base(title, publisher)
         {
-            Title = title;
-            Publisher = publisher;
             this.date = date;
         }
 
