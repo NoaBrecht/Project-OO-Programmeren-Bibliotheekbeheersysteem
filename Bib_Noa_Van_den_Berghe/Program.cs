@@ -36,6 +36,8 @@ namespace Bib_Noa_Van_den_Berghe
                     Console.WriteLine("9.  Alle kranten tonen");
                     Console.WriteLine("10. Alle magazines tonen");
                     Console.WriteLine("11. Aanwisten van vandaag tonen");
+                    Console.WriteLine("12. Boek uitlenen");
+                    Console.WriteLine("13. Boek terugbrengen");
                     Console.WriteLine();
                     Console.WriteLine("exit: Afsluiten");
                     Console.WriteLine();
@@ -132,6 +134,8 @@ namespace Bib_Noa_Van_den_Berghe
                             bib1.AcquisitionsReadingRoomToday();
                             Console.WriteLine("Druk op enter om verder te gaan");
                             Console.ReadLine();
+                            break;
+                        case "12":
                             break;
                         case "exit":
                             stop = true;
