@@ -133,6 +133,9 @@ namespace Bib_Noa_Van_den_Berghe
                             Console.WriteLine("Druk op enter om verder te gaan");
                             Console.ReadLine();
                             break;
+                        case "exit":
+                            stop = true;
+                            break;
                         case "12":
                             Console.WriteLine("Wat is de titel van het boek dat je wilt zoeken?");
                             string titlle = Console.ReadLine();
@@ -152,11 +155,39 @@ namespace Bib_Noa_Van_den_Berghe
                             {
                                 Console.WriteLine("Er is iets fout gegaan");
                             }
+                            finally
+                            {
+                                Console.WriteLine("Druk op enter om verder te gaan");
+                                Console.ReadLine();
+                            }
                             break;
-                        case "exit":
-                            stop = true;
-                            break;
+                        case "13":
+                            Console.WriteLine("Wat is de titel van het boek dat je wilt zoeken?");
+                            string returnTitle = Console.ReadLine();
+                            Console.WriteLine("Wie is de auteur van het boek?");
+                            string returnAuthor = Console.ReadLine();
+                            Book returnBook = bib1.GetBook(returnTitle, returnAuthor);
+                            if (returnBook == null)
+                            {
+                                Console.WriteLine("Boek niet gevonden");
+                                Console.ReadLine();
 
+                                break;
+                            }
+                            try
+                            {
+                                returnBook.Return();
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("Er is iets fout gegaan");
+                            }
+                            finally
+                            {
+                                Console.WriteLine("Druk op enter om verder te gaan");
+                                Console.ReadLine();
+                            }
+                            break;
                         default:
                             Console.WriteLine("Ongeldige keuze. Kies een keuze uit de lijst.");
                             break;

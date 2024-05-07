@@ -37,6 +37,7 @@ namespace Bib_Noa_Van_den_Berghe
         private int borrowDays;
         private DateTime borrowingDate;
 
+
         public string type
         {
             get { return Type; }
@@ -54,6 +55,7 @@ namespace Bib_Noa_Van_den_Berghe
             }
         }
 
+
         public Genre bookgenre
         {
             get { return BookGenre; }
@@ -67,8 +69,8 @@ namespace Bib_Noa_Van_den_Berghe
                 else
                 {
                     Console.WriteLine("Ongeldig genre");
-                    throw new WronginputExeption();
                 }
+
             }
         }
 
@@ -88,6 +90,7 @@ namespace Bib_Noa_Van_den_Berghe
             }
         }
 
+
         public string writer
         {
             get { return Writer; }
@@ -96,7 +99,7 @@ namespace Bib_Noa_Van_den_Berghe
                 if (value == null || value == "")
                 {
                     Console.WriteLine("Gelieve een schrijver in te geven");
-                    throw new ArgumentNullException();
+
                 }
                 else
                 {
@@ -110,6 +113,7 @@ namespace Bib_Noa_Van_den_Berghe
             get { return Language; }
             set { Language = value; }
         }
+
 
         public int pagecount
         {
@@ -133,8 +137,7 @@ namespace Bib_Noa_Van_den_Berghe
             get { return borrowingDate; }
             set { borrowingDate = value; }
         }
-
-        public int BorrowDays 
+        public int BorrowDays
         {
             get { return borrowDays; }
             set
@@ -149,9 +152,9 @@ namespace Bib_Noa_Van_den_Berghe
 
         public Book(string title, string writer, Library library)
         {
-            writer = writer;
-            title = title;
-            isAvailable = true;
+            this.writer = writer;
+            this.title = title;
+            this.isAvailable = true;
             library.AddBook(this);
         }
         public void ShowInfo()
@@ -170,12 +173,12 @@ namespace Bib_Noa_Van_den_Berghe
         }
         public static List<Book> ReadbookFile(string path)
         {
+
             List<Book> books = new List<Book>();
             string[] lijnen = File.ReadAllLines(path);
             for (int i = 0; i < lijnen.Length; i++)
             {
-                string[] kolomwaarden = lijnen[i]
-                                            .Split(';');
+                string[] kolomwaarden = lijnen[i].Split(';');
                 Book book = new Book(kolomwaarden[0], kolomwaarden[1], bib1);
             }
 
@@ -191,15 +194,13 @@ namespace Bib_Noa_Van_den_Berghe
                     Console.WriteLine("Geef de uitleendatum in");
                     DateTime date = DateTime.Parse(Console.ReadLine());
                     borrowingDate = date;
-                    isAvailable = false; 
+                    isAvailable = false;
                 }
             }
             catch (Exception)
-                {
-                    throw;
-                }
-
-
+            {
+                throw;
+            }
         }
 
         public void Return()
@@ -225,5 +226,6 @@ namespace Bib_Noa_Van_den_Berghe
             }
 
         }
+
     }
 }
