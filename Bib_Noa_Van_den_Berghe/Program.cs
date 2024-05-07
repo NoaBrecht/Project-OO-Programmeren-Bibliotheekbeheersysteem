@@ -16,8 +16,6 @@ namespace Bib_Noa_Van_den_Berghe
                 book1.language = "Engels";
                 book1.pagecount = 320;
                 book1.bookgenre = Genre.fictie;
-                book1.Borrow();
-                book1.Return();
                 do
                 {
                     string keuze = "";
@@ -136,6 +134,24 @@ namespace Bib_Noa_Van_den_Berghe
                             Console.ReadLine();
                             break;
                         case "12":
+                            Console.WriteLine("Wat is de titel van het boek dat je wilt zoeken?");
+                            string titlle = Console.ReadLine();
+                            Console.WriteLine("Wie is de auteur van het boek?");
+                            string autor = Console.ReadLine();
+                            Book book = bib1.GetBook(titlle, autor);
+                            if (book == null)
+                            {
+                                Console.WriteLine("Boek niet gevonden");
+                                break;
+                            }
+                            try
+                            {
+                                book.Borrow();
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("Er is iets fout gegaan");
+                            }
                             break;
                         case "exit":
                             stop = true;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -122,7 +123,6 @@ namespace Bib_Noa_Van_den_Berghe
 				if (book.title == titel && book.writer == auteur)
 				{
                     book.ShowInfo();
-
                 }
             }
         }
@@ -165,7 +165,17 @@ namespace Bib_Noa_Van_den_Berghe
                 book.ShowWriterTitle();
             }
         }
-
+        public Book GetBook(string titel, string auteur)
+        {
+            foreach (Book book in BookList)
+            {
+                if (book.title == titel && book.writer == auteur)
+                {
+                    return book;
+                }
+            }
+            return null;
+        }
         public void addInfoToBook(string iSBNtitle, string iSBNauthor, string iSBN)
         {
             foreach (Book book in BookList)
