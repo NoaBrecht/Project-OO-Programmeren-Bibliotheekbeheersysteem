@@ -51,6 +51,7 @@ namespace Bib_Noa_Van_den_Berghe
                 else
                 {
                     Console.WriteLine("Ongeldig type");
+                    throw new WronginputExeption();
                 }
             }
         }
@@ -69,6 +70,7 @@ namespace Bib_Noa_Van_den_Berghe
                 else
                 {
                     Console.WriteLine("Ongeldig genre");
+                    throw new WrongGenreExeption();
                 }
 
             }
@@ -139,14 +141,17 @@ namespace Bib_Noa_Van_den_Berghe
         }
         public int BorrowDays
         {
-            get { return borrowDays; }
-            set
-            {
+            get {
                 borrowDays = 20;
                 if (BookGenre == Genre.schoolboek)
                 {
                     borrowDays = 10;
                 }
+                return borrowDays; 
+            }
+            set
+            {
+                borrowDays = value;
             }
         }
 
@@ -181,7 +186,6 @@ namespace Bib_Noa_Van_den_Berghe
                 string[] kolomwaarden = lijnen[i].Split(';');
                 Book book = new Book(kolomwaarden[0], kolomwaarden[1], bib1);
             }
-
             return books;
         }
 
@@ -209,10 +213,12 @@ namespace Bib_Noa_Van_den_Berghe
             {
                 isAvailable = true;
                 DateTime today = DateTime.Today;
-                TimeSpan diff = today - (borrowingDate.AddDays(borrowDays));
+                DateTime returnDate = borrowingDate.AddDays(BorrowDays);
+                TimeSpan diff = today - returnDate;
+                Console.WriteLine($"Het boek moest teruggebracht worden op: {returnDate.ToString("dd/MM/yyyy")}");
                 if (diff.TotalDays > 0)
                 {
-                    Console.WriteLine("Het boek is te laat binnengebracht");
+                    Console.WriteLine($"Het boek is {diff.TotalDays} dagen te laat binnengebracht.");
                 }
                 else
                 {

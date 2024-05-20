@@ -1,4 +1,5 @@
 ﻿using static Bib_Noa_Van_den_Berghe.Book;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Bib_Noa_Van_den_Berghe
@@ -37,9 +38,10 @@ namespace Bib_Noa_Van_den_Berghe
                     Console.WriteLine("12. Boek uitlenen");
                     Console.WriteLine("13. Boek terugbrengen");
                     Console.WriteLine();
-                    Console.WriteLine("exit: Afsluiten");
+                    Console.WriteLine("Typ 'exit' om de applicatie af te sluiten.");
                     Console.WriteLine();
                     keuze = Console.ReadLine();
+                    Console.WriteLine();
                     switch (keuze.ToLower())
                     {
                         case "1":
@@ -66,9 +68,16 @@ namespace Bib_Noa_Van_den_Berghe
                                 string ISBNtitle = Console.ReadLine();
                                 Console.WriteLine("Wie is de auteur van het boek?");
                                 string ISBNauthor = Console.ReadLine();
-                                Console.WriteLine("Voer het ISBN nummer voor het boek in: (0123456789)");
-                                string ISBN = Console.ReadLine();
-                                bib1.addInfoToBook(ISBNtitle, ISBNauthor, ISBN);
+                                Console.WriteLine("Hoeveel pagina's heeft het boek?");
+                                try
+                                {
+                                    int pageCount = int.Parse(Console.ReadLine());
+                                    bib1.addInfoToBook(ISBNtitle, ISBNauthor, pageCount);
+                                }
+                                catch (Exception)
+                                {
+                                    Console.WriteLine("Gelieve een nummer in te geven");
+                                }
                             }
                             catch (Exception e)
                             {
@@ -77,13 +86,21 @@ namespace Bib_Noa_Van_den_Berghe
                             break;
 
                         case "3":
-                            Console.WriteLine("Wat is de titel van het boek?");
-                            string naam = Console.ReadLine();
-                            Console.WriteLine("Wie is de auteur van het boek?");
-                            string auter = Console.ReadLine();
-                            bib1.SearchBookByTitelAutor(naam, auter);
-                            Console.WriteLine("Druk op enter om verder te gaan");
-                            Console.ReadLine();
+                            try
+                            {
+                                Console.WriteLine("Wat is de titel van het boek?");
+                                string naam = Console.ReadLine();
+                                Console.WriteLine("Wie is de auteur van het boek?");
+                                string auter = Console.ReadLine();
+                                bib1.SearchBookByTitelAutor(naam, auter);
+                                Console.WriteLine("Druk op enter om verder te gaan");
+                                Console.ReadLine();
+
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e.Message);
+                            }
                             break;
                         case "4":
                             Console.WriteLine("Wat is de titel van het boek dat je wilt zoeken?");
@@ -137,11 +154,12 @@ namespace Bib_Noa_Van_den_Berghe
                             stop = true;
                             break;
                         case "12":
-                            Console.WriteLine("Wat is de titel van het boek dat je wilt zoeken?");
+                            Console.WriteLine("Wat is de titel van het boek dat je wilt uitlenen?");
                             string titlle = Console.ReadLine();
                             Console.WriteLine("Wie is de auteur van het boek?");
                             string autor = Console.ReadLine();
                             Book book = bib1.GetBook(titlle, autor);
+                            //Book book = bib1.GetBook("Mirage Daughter of No One", "Maria Lewis");
                             if (book == null)
                             {
                                 Console.WriteLine("Boek niet gevonden");
@@ -162,11 +180,12 @@ namespace Bib_Noa_Van_den_Berghe
                             }
                             break;
                         case "13":
-                            Console.WriteLine("Wat is de titel van het boek dat je wilt zoeken?");
+                            Console.WriteLine("Wat is de titel van het boek dat je wilt terugbrengen?");
                             string returnTitle = Console.ReadLine();
                             Console.WriteLine("Wie is de auteur van het boek?");
                             string returnAuthor = Console.ReadLine();
                             Book returnBook = bib1.GetBook(returnTitle, returnAuthor);
+                            //Book returnBook = bib1.GetBook("Mirage Daughter of No One", "Maria Lewis");
                             if (returnBook == null)
                             {
                                 Console.WriteLine("Boek niet gevonden");

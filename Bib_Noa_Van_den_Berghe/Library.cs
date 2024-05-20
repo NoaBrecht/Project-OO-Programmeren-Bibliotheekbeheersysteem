@@ -163,6 +163,7 @@ namespace Bib_Noa_Van_den_Berghe
             foreach (Book book in BookList)
             {
                 book.ShowWriterTitle();
+                Console.WriteLine();
             }
         }
         public Book GetBook(string titel, string auteur)
@@ -176,13 +177,13 @@ namespace Bib_Noa_Van_den_Berghe
             }
             return null;
         }
-        public void addInfoToBook(string iSBNtitle, string iSBNauthor, string iSBN)
+        public void addInfoToBook(string title, string author, int pagecount)
         {
             foreach (Book book in BookList)
             {
-                if (book.title == iSBNtitle && book.writer == iSBNauthor)
+                if (book.title == title && book.writer == author)
                 {
-                    book.isbn = iSBN;
+                    book.pagecount = pagecount;
                 }
             }
         }
